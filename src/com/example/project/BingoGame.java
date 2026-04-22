@@ -81,7 +81,6 @@ class BingoGame {
 				bingoCard[i][j] = lists.get(j).get(i);
 			}
 		}
-
 		return bingoCard;
 	}
 

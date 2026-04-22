@@ -32,7 +32,6 @@ class BingoGame {
 		for (int pickCount = 1; pickCount <= 75; pickCount++) {
 
 			pickNumber = pickList.get(pickCount - 1);
-
 			System.out.println("ball[" + pickCount + "]:" + pickNumber);
 
 			//出たボールがカード内にあればcheckOpenedをtrueにする

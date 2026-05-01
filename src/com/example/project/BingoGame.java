@@ -110,6 +110,12 @@ class BingoGame {
 				if (checkOpened[i][j]) {
 					rowCountList[i] = rowCountList[i] + 1;
 					columnCountList[j] = columnCountList[j] + 1;
+					if (i == j) {
+						leftDiagonalCount++;
+					}
+					if (i + j == siz - 1) {
+						rightDiagonalCount++;
+					}
 				}
 			}
 		}
@@ -126,23 +132,17 @@ class BingoGame {
 			} else if (rowCountList[i] == siz - 1 || columnCountList[i] == siz - 1) {
 				reach++;
 			}
-
-			if (checkOpened[i][i]) {
-				leftDiagonalCount++;
-			}
-			if (checkOpened[i][siz - 1 - i]) {
-				rightDiagonalCount++;
-			}
 		}
 
-		if (leftDiagonalCount == siz && rightDiagonalCount == siz) {
-			bingo = bingo + 2;
-		} else if (leftDiagonalCount == siz || rightDiagonalCount == siz) {
+		if (leftDiagonalCount == siz) {
 			bingo++;
+		} else if (leftDiagonalCount == siz - 1) {
+			reach++;
 		}
-		if (leftDiagonalCount == siz - 1 && rightDiagonalCount == siz - 1) {
-			reach = reach + 2;
-		} else if (leftDiagonalCount == siz - 1 || rightDiagonalCount == siz - 1) {
+
+		if (rightDiagonalCount == siz) {
+			bingo++;
+		} else if (rightDiagonalCount == siz - 1) {
 			reach++;
 		}
 
